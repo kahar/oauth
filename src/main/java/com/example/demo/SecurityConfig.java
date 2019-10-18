@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -17,6 +18,7 @@ import org.springframework.security.oauth2.client.registration.InMemoryClientReg
 import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
 import org.springframework.security.oauth2.client.web.HttpSessionOAuth2AuthorizationRequestRepository;
 import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import java.util.Arrays;
 import java.util.List;
@@ -103,5 +105,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .build();
         }
         return null;
+    }
+
+    @Bean
+    public FilterRegistrationBean<RequestResponseLoggingFilter> loggingFilter(){
+        FilterRegistrationBean<RequestResponseLoggingFilter> registrationBean
+                = new FilterRegistrationBean<>();
+
+        registrationBean.setFilter(new RequestResponseLoggingFilter());
+
+        return registrationBean;
     }
 }

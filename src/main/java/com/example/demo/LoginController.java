@@ -46,6 +46,11 @@ public class LoginController {
         return "oauth_login";
     }
 
+    @GetMapping("/oauth_confirm")
+    public String confirm(Model model) {
+        return "oauth_confirm";
+    }
+
     @GetMapping("/loginSuccess")
     public String getLoginInfo(Model model, OAuth2AuthenticationToken authentication) {
 
