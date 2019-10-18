@@ -13,13 +13,21 @@ repositories {
 }
 
 dependencies {
-	implementation"org.liquibase:liquibase-core:3.4.1"
+
+	compile 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.2.0.RELEASE'
+
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	implementation 'org.springframework.security:spring-security-oauth2-jose'
+	implementation 'org.springframework.security:spring-security-oauth2-client'
+
 	implementation 'com.h2database:h2:1.4.200'
+
+	implementation 'org.liquibase:liquibase-core:3.4.1'
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -30,11 +38,3 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
-//		<dependency>
-//		<groupId>org.springframework.security</groupId>
-//    <artifactId>spring-security-oauth2-client</artifactId>
-//		</dependency>
-//<dependency>
-//   <groupId>org.springframework.security</groupId>
-//<artifactId>spring-security-oauth2-jose</artifactId>
-//</dependency>
