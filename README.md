@@ -1,12 +1,21 @@
 Following flow to access secured data is required:  
-/oauth_login  
-/api/create  
-/api/confirm  
+http://localhost:8081/oauth_login  
+http://localhost:8081/account/create  
+http://localhost:8081/account/confirm  
 
 now you can access following url's:  
-/api/authentication  
-/api/principal  
-/api/principal/name  
+http://localhost:8081/account/authentication    
+http://localhost:8081/account/principal    
+http://localhost:8081/account/principal/name  
 
 
-http://localhost:8081/console/login.do
+For H2 database console use url:  
+http://localhost:8081/console/login.do  
+Driver Class: org.h2.Driver  
+JDBC URL: jdbc:h2:mem:testdb  
+User Name: sa  
+Password: //empty  
+
+
+For swagger documentation use browser extension, and url:  
+http://localhost:8081/v2/api-docs

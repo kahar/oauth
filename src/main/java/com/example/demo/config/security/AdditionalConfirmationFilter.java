@@ -37,7 +37,8 @@ public class AdditionalConfirmationFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
         String url = req.getRequestURI();
 
-        if ("/api/confirm".equals(url) || "/api/create".equals(url) || "/oauth_confirm".equals(url) || "/console".equals(url) || url.contains("/console/") || "/oauth_login".equals(url)) {
+        /*TODO better comparator is required beacause for server.servlet.context-path this comparator will fail*/
+        if ("/account/confirm".equals(url) || "/account/create".equals(url) || "/oauth_confirm".equals(url) || "/console".equals(url) || url.contains("/console/") || url.contains("v2") || "/oauth_login".equals(url)) {
             chain.doFilter(request, response);
             return;
         } else {

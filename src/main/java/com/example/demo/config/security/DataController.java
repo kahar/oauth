@@ -11,7 +11,7 @@ import java.security.Principal;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/account")
 class DataController {
 
     @Autowired
