@@ -1,21 +1,21 @@
-package com.example.demo;
+package com.example.demo.config.security;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+class User {
     @Id
-    @Column(name="google_email")
+    @Column(name = "google_email")
     private String googleMeil;
 
     private boolean confirmed;
 
-    @Column(name="capgemini_email")
+    @Column(name = "capgemini_email")
     private String capgeminiMeil;
 
-    public User() {
+    User() {
     }
 
     public User(String googleMeil, boolean confirmed, String capgeminiMeil) {
@@ -28,23 +28,19 @@ public class User {
         return googleMeil;
     }
 
-    public void setGoogleMeil(String googleMeil) {
+    void setGoogleMeil(String googleMeil) {
         this.googleMeil = googleMeil;
     }
 
-    public boolean isConfirmed() {
+    boolean isConfirmed() {
         return confirmed;
     }
 
-    public void setConfirmed(boolean confirmed) {
+    void setConfirmed(boolean confirmed) {
         this.confirmed = confirmed;
     }
 
     public String getCapgeminiMeil() {
         return capgeminiMeil;
-    }
-
-    public void setCapgeminiMeil(String capgeminiMeil) {
-        this.capgeminiMeil = capgeminiMeil;
     }
 }

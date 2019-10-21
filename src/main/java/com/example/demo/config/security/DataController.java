@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
-public class DataController {
+class DataController {
 
     @Autowired
     private UserRepository userRepository;
@@ -20,7 +20,7 @@ public class DataController {
     @GetMapping("/confirm")
     public void confirm(OAuth2AuthenticationToken authentication) {
         Optional<User> userO = userRepository.findById(authentication.getPrincipal().getAttribute("email"));
-        if(userO.isPresent()){
+        if (userO.isPresent()) {
             User user = userO.get();
             user.setConfirmed(true);
             userRepository.save(user);
@@ -30,7 +30,7 @@ public class DataController {
     @GetMapping("/create")
     public void create(OAuth2AuthenticationToken authentication) {
         Optional<User> userO = userRepository.findById(authentication.getPrincipal().getAttribute("email"));
-        if(!userO.isPresent()){
+        if (!userO.isPresent()) {
             User user = new User();
             user.setConfirmed(false);
             user.setGoogleMeil(authentication.getPrincipal().getAttribute("email"));

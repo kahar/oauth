@@ -1,9 +1,8 @@
-package com.example.demo;
+package com.example.demo.config.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Component;
@@ -15,23 +14,16 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Optional;
 
-/**
- * A servlet filter to log request and response
- * The logging implementation is pretty native and for demonstration only
- *
- * @author hemant
- */
 @Component
-@Order(2)
-public class RequestResponseLoggingFilter implements Filter {
+class AdditionalConfirmationFilter implements Filter {
 
-    private final static Logger LOG = LoggerFactory.getLogger(RequestResponseLoggingFilter.class);
+    private final static Logger LOG = LoggerFactory.getLogger(AdditionalConfirmationFilter.class);
 
     @Autowired
     private UserRepository userRepository;
 
     @Override
-    public void init(final FilterConfig filterConfig) throws ServletException {
+    public void init(final FilterConfig filterConfig) {
         LOG.info("Initializing filter :{}", this);
     }
 
@@ -65,7 +57,6 @@ public class RequestResponseLoggingFilter implements Filter {
         res.sendRedirect("/oauth_confirm");
 
     }
-
 
 
     @Override

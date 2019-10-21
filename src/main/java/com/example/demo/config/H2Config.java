@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.config;
 
 import liquibase.integration.spring.SpringLiquibase;
 import org.h2.server.web.WebServlet;
@@ -9,11 +9,11 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
-public class H2Config {
+class H2Config {
 
     @Bean
-    ServletRegistrationBean h2servletRegistration(){
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
+    ServletRegistrationBean h2servletRegistration() {
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new WebServlet());
         registrationBean.addUrlMappings("/console/*");
         return registrationBean;
     }
