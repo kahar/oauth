@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.config.db;
 
 import liquibase.integration.spring.SpringLiquibase;
 import org.h2.server.web.WebServlet;
