@@ -3,6 +3,7 @@ package com.example.demo.config.security;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,9 @@ import java.io.IOException;
 import java.util.Optional;
 
 @Component
-class AdditionalConfirmationFilter implements Filter {
+/*TODO Why Order must be here with this value?*/
+@Order(2)
+public class AdditionalConfirmationFilter implements Filter {
 
     private final static Logger LOG = LoggerFactory.getLogger(AdditionalConfirmationFilter.class);
 
@@ -50,6 +53,7 @@ class AdditionalConfirmationFilter implements Filter {
                     User user = result.get();
                     if (user.isConfirmed()) {
                         chain.doFilter(request, response);
+                        return;
                     }
                 }
             }

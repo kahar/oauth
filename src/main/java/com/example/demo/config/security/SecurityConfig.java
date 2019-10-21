@@ -44,20 +44,20 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    private AuthorizationRequestRepository<OAuth2AuthorizationRequest> authorizationRequestRepository() {
+    public AuthorizationRequestRepository<OAuth2AuthorizationRequest> authorizationRequestRepository() {
         return new HttpSessionOAuth2AuthorizationRequestRepository();
     }
 
     @Bean
-    private OAuth2AccessTokenResponseClient<OAuth2AuthorizationCodeGrantRequest> accessTokenResponseClient() {
+    public OAuth2AccessTokenResponseClient<OAuth2AuthorizationCodeGrantRequest> accessTokenResponseClient() {
         return new DefaultAuthorizationCodeTokenResponseClient();
     }
 
     @Bean
-    public FilterRegistrationBean<AdditionalConfirmationFilter> loggingFilter() {
+    public FilterRegistrationBean<AdditionalConfirmationFilter> confirmationFilter(AdditionalConfirmationFilter confirmationFilter) {
         FilterRegistrationBean<AdditionalConfirmationFilter> registrationBean
                 = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new AdditionalConfirmationFilter());
+        registrationBean.setFilter(confirmationFilter);
         return registrationBean;
     }
 
