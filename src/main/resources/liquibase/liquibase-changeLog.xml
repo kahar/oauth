@@ -13,7 +13,7 @@
                 <constraints primaryKey="true" />
             </column>
             <column name="confirmed" type="boolean"/>
-            <column name="capgemini_email" type="varchar(255)"/>
+            <column name="custom_email" type="varchar(255)"/>
         </createTable>
     </changeSet>
 

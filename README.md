@@ -7,3 +7,6 @@ now you can access following url's:
 /api/authentication  
 /api/principal  
 /api/principal/name  
+
+
+http://localhost:8081/console/login.do

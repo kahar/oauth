@@ -12,16 +12,16 @@ class User {
 
     private boolean confirmed;
 
-    @Column(name = "capgemini_email")
-    private String capgeminiMeil;
+    @Column(name = "custom_email")
+    private String customMeil;
 
     User() {
     }
 
-    public User(String googleMeil, boolean confirmed, String capgeminiMeil) {
+    public User(String googleMeil, boolean confirmed, String customMeil) {
         this.googleMeil = googleMeil;
         this.confirmed = confirmed;
-        this.capgeminiMeil = capgeminiMeil;
+        this.customMeil = customMeil;
     }
 
     public String getGoogleMeil() {
@@ -40,7 +40,11 @@ class User {
         this.confirmed = confirmed;
     }
 
-    public String getCapgeminiMeil() {
-        return capgeminiMeil;
+    public String getCustomMeil() {
+        return customMeil;
+    }
+
+   public void setCustomMeil(String customMeil) {
+        this.customMeil = customMeil;
     }
 }
